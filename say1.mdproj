@@ -33,6 +33,15 @@
     </Runtime>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="main.py" />
+    <Compile Include="sayall.py" />
+    <Compile Include="wget.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="empty03.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="empty10.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
