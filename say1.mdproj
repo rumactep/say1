@@ -37,10 +37,7 @@
     <Compile Include="wget.py" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="empty03.mp3">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="empty10.mp3">
+    <None Include="mp3res\empty10.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

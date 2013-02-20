@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #coding: utf-8
 
 # this script downloads words from google speech api and joins in one file
@@ -6,9 +6,13 @@
 
 import sys
 import wget
+import os
+
+def makefilename(filename):
+    return '.' + os.sep + 'mp3res' + os.sep + filename
 
 def appendfile(outputfile, lastfilename):
-    fileobj = open(lastfilename + '.mp3','rb')
+    fileobj = open(makefilename(lastfilename) + '.mp3', 'rb')
     filebytes = fileobj.read()
     outputfile.write(filebytes)
     fileobj.close()
@@ -23,14 +27,14 @@ def loadfile(filename):
     for line1 in wordsfile:
         line = line1.replace('\n', '')
         wordlen = len(line)
-        print " " + line
-        wget.download(line)
+        print (" " + line)
+        wget.download(line, makefilename)
         appendfile(outputfile, onesecond)
         appendfile(outputfile, line)
         appendfile(outputfile, onesecond)
         appendfile(outputfile, line)
         appendfile(outputfile, onesecond)
-        for i in range(wordlen/2):
+        for i in range(int(wordlen/2)):
             appendfile(outputfile, onesecond)
 
 
@@ -38,10 +42,10 @@ def loadfile(filename):
 if __name__ == '__main__':
     if len(sys.argv) == 2:
         wordsfilename = sys.argv[1]
-        print "loading words from file " + wordsfilename
+        print ("loading words from file " + wordsfilename)
         loadfile(wordsfilename)
 
     else:
-        print 'attempt to load translate for test!'
-        wget.download('test')
+        print ('attempt to load translate for test!')
+        wget.download('test', makefilename)
 
